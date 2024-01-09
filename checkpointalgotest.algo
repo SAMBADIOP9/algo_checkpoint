@@ -1,0 +1,97 @@
+ALGORITHM checkpoint-algo
+VAR
+    set_declarations
+    phrase : STRING;
+    nbr_mot,nbr_voyelle : INTEGER;
+BEGIN
+    set_instructions
+    Write("Donne moi une phrase avec un.")
+    Read(phrase)
+    IF (phrase[phrase.length-1]!== ".") THEN // verifie si la longueur-1 de la chaine phrase n'est pas =  un "." autrement dit  vérifie si le dernier caractère de la chaîne "phrase" n'est pas un point (".") 
+        set_instructions
+        Write("Ta phrase n'a pas de .")
+        REPEAT
+        Write("Donne moi une phrase avec un.")
+    Read(phrase)
+            
+        UNTIL (phrase[phrase[i]]!== ".") // Cette expression vérifie si le caractère à l'index i dans la chaîne "phrase" n'est pas un point (".").
+
+// BEGIN
+//     set_instructions
+//     Write("Donne moi une phrase avec un.")
+//     Read(phrase)
+//     WHILE (phrase[phrase.length-1] !== ".") DO // tant que le dernier caractère de la chaîne "phrase" n'est pas un point (".")
+//         set_instructions
+//         Write("Ta phrase n'a pas de .")
+//         Write("Donne moi une phrase avec un.")
+//         Read(phrase)
+//     END_WHILE
+
+
+//pour trouver le nombre de mot
+    nbr_mot:=1
+
+    FOR i FROM 0 TO phrase.length STEP 1  DO
+        set_instructions
+        IF (phrase[i]==" ") THEN
+            set_instructions
+            nbr_mot:=nbr_mot+1
+        END_IF
+
+    END_FOR
+
+    Write("le nombre de mot est", nbr_mot)
+
+//pour trouver le nombre de voyelle
+    nbr_voyelle:=0
+    FOR i FROM 0 TO phrase.length STEP 1  DO
+        set_instructions
+        IF ((phrase[i] == "a") or (phrase[i] == "e")or(phrase[i] == "i")or(phrase[i] == "o")or(phrase[i] == "e")or(phrase[i] == "u")or(phrase[i] == "y")) THEN
+        nbr_voyelle:=nbr_voyelle+1
+        END_IF
+        Write("Le nombre de voyelle est de:"nbr_voyelle)
+
+    END_FOR
+
+END
+
+//TACHE2
+
+ALGORITHM sum
+VAR
+    set_declarations
+     sumdistinct, sum: INTEGER;
+    ensemble1: ARRAY_OF INTEGER[4];
+    ensemble2: ARRAY_OF INTEGER[5];
+    verification1, verification2: BOOLEAN;
+    ensembledistinct: ARRAY_OF INTEGER[5];
+BEGIN
+    set_instructions
+    sumdistinct := 0;
+    sum := 0;
+    verification1 := TRUE;
+    ensemble1 := [2, 3, 4, 5];
+    ensemble2 := [2, 3, 4, 5, 6];
+
+     FOR i FROM 1 TO LENGTH(ensemble1) DO
+        FOR j FROM 1 TO LENGTH(ensemble2) DO
+            IF ensemble1[i] = ensemble2[j] THEN
+                verification1 := FALSE;
+                EXIT;  
+            END_IF
+        END_FOR
+
+        IF verification1 === TRUE THEN
+            sumdistinct := sumdistinct + ensemble1[i];
+        FOR j FROM 1 TO LENGTH STEP (ensemble2)  DO
+                FOR i FROM 1 TO LENGTH(ensemble1) DO
+                IF ensemble2[j] =ensemble1[i] THEN
+                    verify1:= FALSE;
+                    EXIT; 
+                END_IF
+            END_FOR
+
+            END_IF
+        END_FOR
+
+        END
